@@ -41,6 +41,10 @@ const router = express.Router();
 
 const client = new BedrockAgentRuntimeClient({
   region: process.env.AWS_BEDROCK_REGION || "us-east-2",
+  credentials: {
+    accessKeyId: process.env.AWS_BACKEND_KEY,
+    secretAccessKey: process.env.AWS_BACKEND_SECRET,
+  },
 });
 
 const s3 = new S3Client({
